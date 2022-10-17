@@ -1,4 +1,4 @@
-package be.pxl.boardgame.boardgameapp.service;
+package be.pxl.boardgame.boardgameapp.service.contract;
 
 import be.pxl.boardgame.boardgameapp.model.dto.BoardgameRequest;
 import be.pxl.boardgame.boardgameapp.model.dto.BoardgameResponse;

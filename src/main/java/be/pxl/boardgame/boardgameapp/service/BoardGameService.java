@@ -1,10 +1,11 @@
-package be.pxl.boardgame.boardgameapp.service.contract;
+package be.pxl.boardgame.boardgameapp.service;
 
 import be.pxl.boardgame.boardgameapp.model.BoardGame;
 import be.pxl.boardgame.boardgameapp.model.dto.BoardgameRequest;
 import be.pxl.boardgame.boardgameapp.model.dto.BoardgameResponse;
 import be.pxl.boardgame.boardgameapp.repository.IBoardGameRepository;
-import be.pxl.boardgame.boardgameapp.service.IBoardGameService;
+import be.pxl.boardgame.boardgameapp.service.contract.IBoardGameService;
+import be.pxl.boardgame.boardgameapp.service.contract.LogExecutionTime;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Service;
@@ -27,6 +28,7 @@ public class BoardGameService implements IBoardGameService {
 
     @Override
     @Secured(value = "ROLE_ADMIN")
+    @LogExecutionTime
     public List<BoardgameResponse> getAllBoardGames() {
         List<BoardGame> boardGameList = boardGameRepository.findAll();
         return boardGameList.stream().map(this::mapToBoardGameResponse).toList();
