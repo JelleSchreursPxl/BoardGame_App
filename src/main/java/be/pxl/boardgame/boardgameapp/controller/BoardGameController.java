@@ -22,7 +22,7 @@ public class BoardGameController {
 
     @GetMapping
     public ResponseEntity<List<BoardgameResponse>> getAllBoardGames(){
-        return new ResponseEntity(boardGameService.getAllBoardGames(), HttpStatus.OK);
+        return new ResponseEntity<>(boardGameService.getAllBoardGames(), HttpStatus.OK);
     }
 
     @GetMapping("{id}")
